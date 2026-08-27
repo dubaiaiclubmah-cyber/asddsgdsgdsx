@@ -22,10 +22,8 @@ concurrency:
   group: pages
   cancel-in-progress: false
 
-env:
-  # The repository is served from this subpath on GitHub Pages:
-  # https://dubaiaiclubmah-cyber.github.io/asddsgdsgdsx/
-  BASE_PATH: /asddsgdsgdsx/
+# NOTE: the Pages subpath (/asddsgdsgdsx/) is configured in vite.config.js
+# via `base`, so a plain `npm run build` already produces a deployable dist.
 
 jobs:
   build:
@@ -45,9 +43,10 @@ jobs:
         run: npm ci
 
       - name: Build for GitHub Pages
-        # Production build with the correct base path for this repository,
-        # so all JS/CSS/image URLs resolve under /asddsgdsgdsx/.
-        run: npx vite build --base=${{ env.BASE_PATH }} --outDir dist
+        # Production build. vite.config.js sets `base: "/asddsgdsgdsx/"`,
+        # so every JS/CSS URL in dist/index.html resolves under the
+        # repository subpath on GitHub Pages.
+        run: npm run build
 
       - name: Configure GitHub Pages
         uses: actions/configure-pages@v5

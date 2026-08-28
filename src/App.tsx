@@ -144,6 +144,27 @@ export default function App() {
           <p className="mt-5 text-center text-[12px] text-[#5c6a6d] tracking-wide">
             ساخته‌شده برای حساب‌وکتاب‌های روزمره — هر نتیجه روی نوار چاپ می‌شود و قابل برگرداندن است.
           </p>
+
+          {/* credit — Helia's first program */}
+          <div className="mt-8">
+            <div className="flex items-center justify-center gap-3" aria-hidden="true">
+              <span className="h-px w-14 bg-gradient-to-l from-transparent to-[#f7a928]/50" />
+              <svg
+                viewBox="0 0 24 24"
+                className="w-4 h-4 text-[#f7a928] drop-shadow-[0_0_10px_rgba(247,169,40,0.55)]"
+                fill="currentColor"
+              >
+                <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+              </svg>
+              <span className="h-px w-14 bg-gradient-to-r from-transparent to-[#f7a928]/50" />
+            </div>
+            <p className="mt-3.5 text-center text-sm md:text-[15px] leading-8 text-[#c4bdaa]">
+              این برنامه توسط <span className="font-bold text-[#f7a928]">هلیا</span>، از دانش‌آموزان خانم دکتر آقایی، نوشته شده.
+              <span className="block mt-0.5 text-[12.5px] md:text-[13px] leading-7 text-[#7e8b80]">
+                و اولین تجربه برنامه‌نویسی هلیا است.
+              </span>
+            </p>
+          </div>
         </footer>
       </main>
     </div>

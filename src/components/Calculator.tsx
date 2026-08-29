@@ -11,6 +11,34 @@ interface CalculatorProps {
 
 const MAX_DIGITS = 14;
 
+/** four indicator lamps: amber, coral, mint, sky — each blinks on its own rhythm */
+const LAMPS: { bg: string; glow: string; duration: string; delay: string }[] = [
+  {
+    bg: "linear-gradient(180deg, #ffc04a 0%, #e28e0c 100%)",
+    glow: "rgba(247, 169, 40, 0.8)",
+    duration: "2.1s",
+    delay: "0s",
+  },
+  {
+    bg: "linear-gradient(180deg, #ff8a6b 0%, #e4502e 100%)",
+    glow: "rgba(255, 107, 90, 0.75)",
+    duration: "2.7s",
+    delay: "0.6s",
+  },
+  {
+    bg: "linear-gradient(180deg, #6fe3b4 0%, #2fae7f 100%)",
+    glow: "rgba(87, 224, 168, 0.7)",
+    duration: "1.9s",
+    delay: "1.1s",
+  },
+  {
+    bg: "linear-gradient(180deg, #7fc4ff 0%, #3f8fe0 100%)",
+    glow: "rgba(110, 180, 255, 0.75)",
+    duration: "2.4s",
+    delay: "0.3s",
+  },
+];
+
 export default function Calculator({ mode, pickup, onHistory }: CalculatorProps) {
   const [raw, setRaw] = useState("0");
   const [acc, setAcc] = useState<number | null>(null);
@@ -197,9 +225,21 @@ export default function Calculator({ mode, pickup, onHistory }: CalculatorProps)
               آریا <span className="text-[#f7a928]">۸۸</span>
               <span className="block font-body text-[10px] text-[#5c6a6d] mt-1 tracking-[0.25em]">ARYA·SOLAR</span>
             </div>
-            <div className="flex gap-[3px] p-[5px] rounded-[4px] bg-[#101417] ring-1 ring-white/10 shadow-[inset_0_1px_3px_rgba(0,0,0,0.8)]">
-              {[0, 1, 2, 3].map((i) => (
-                <div key={i} className="w-8 h-4 rounded-[2px] bg-gradient-to-br from-[#4a4f75] via-[#333857] to-[#22263f] shadow-[inset_0_1px_1px_rgba(255,255,255,0.25)]" />
+            <div
+              className="flex gap-[5px] p-[5px] rounded-[4px] bg-[#101417] ring-1 ring-white/10 shadow-[inset_0_1px_3px_rgba(0,0,0,0.8)]"
+              aria-label="چراغ‌های نشانگر ماشین حساب"
+            >
+              {LAMPS.map((lamp, i) => (
+                <div
+                  key={i}
+                  className="lamp-blink w-7 h-4 rounded-[3px]"
+                  style={{
+                    background: lamp.bg,
+                    ["--lamp" as string]: lamp.glow,
+                    animationDuration: lamp.duration,
+                    animationDelay: lamp.delay,
+                  }}
+                />
               ))}
             </div>
           </div>

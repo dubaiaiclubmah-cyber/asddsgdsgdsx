@@ -123,3 +123,34 @@ body {
 .lampfloat {
   animation: lampfloat 9s ease-in-out infinite;
 }
+
+/* ---------- four blinking indicator lamps ---------- */
+@keyframes lampblink {
+  0%, 12% {
+    opacity: 1;
+    box-shadow:
+      0 0 12px 2px var(--lamp),
+      0 0 4px 1px var(--lamp),
+      inset 0 1px 1px rgba(255, 255, 255, 0.55);
+  }
+  22%, 55% {
+    opacity: 0.15;
+    box-shadow: 0 0 0 0 transparent, inset 0 1px 1px rgba(255, 255, 255, 0.12);
+  }
+  65%, 100% {
+    opacity: 1;
+    box-shadow:
+      0 0 12px 2px var(--lamp),
+      0 0 4px 1px var(--lamp),
+      inset 0 1px 1px rgba(255, 255, 255, 0.55);
+  }
+}
+.lamp-blink {
+  animation: lampblink 2.4s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .lamp-blink {
+    animation: none;
+  }
+}

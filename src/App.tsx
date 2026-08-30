@@ -116,7 +116,44 @@ export default function App() {
 
         {/* machine + tape */}
         <div className="grid gap-12 lg:gap-14 lg:grid-cols-[minmax(0,26rem)_minmax(0,1fr)] items-start">
-          <Calculator mode={mode} pickup={pickup} onHistory={handleHistory} />
+          <div className="min-w-0">
+            <Calculator mode={mode} pickup={pickup} onHistory={handleHistory} />
+
+            {/* signature — right below the machine */}
+            <div className="rise mt-5 rounded-2xl bg-[#121a17]/85 ring-1 ring-white/8 px-5 py-4" style={{ animationDelay: "0.22s" }}>
+              <div className="flex items-center justify-center gap-3" aria-hidden="true">
+                <span className="h-px w-12 bg-gradient-to-l from-transparent to-[#f7a928]/50" />
+                <svg
+                  viewBox="0 0 24 24"
+                  className="w-4 h-4 text-[#f7a928] drop-shadow-[0_0_10px_rgba(247,169,40,0.55)]"
+                  fill="currentColor"
+                >
+                  <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+                </svg>
+                <span className="h-px w-12 bg-gradient-to-r from-transparent to-[#f7a928]/50" />
+              </div>
+              <p className="mt-3 text-center text-sm md:text-[15px] leading-8 text-[#c4bdaa]">
+                این برنامه توسط <span className="font-bold text-[#f7a928]">هلیا</span>، از دانش‌آموزان خانم دکتر آقایی، نوشته شده.
+                <span className="block mt-0.5 text-[12.5px] md:text-[13px] leading-7 text-[#7e8b80]">
+                  و اولین تجربه برنامه‌نویسی هلیا است.
+                </span>
+              </p>
+              <div className="mt-3.5 flex flex-col items-center gap-1.5">
+                <span className="text-[11.5px] text-[#77857a]">شماره تماس استاد</span>
+                <a
+                  href="tel:00971551544988"
+                  dir="ltr"
+                  className="inline-flex items-center gap-2 rounded-xl bg-[#161d1a] ring-1 ring-white/10 px-4 py-1.5 text-[15px] font-bold tracking-[0.08em] text-[#e9e4d4] outline-none transition-all duration-200 hover:ring-[#f7a928]/60 hover:text-[#ffc04a] hover:shadow-[0_0_18px_rgba(247,169,40,0.2)] focus-visible:ring-2 focus-visible:ring-[#f7a928]"
+                >
+                  <svg viewBox="0 0 24 24" className="w-4 h-4 text-[#f7a928]" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+                  </svg>
+                  ۰۰۹۷۱۵۵۱۵۴۴۹۸۸
+                </a>
+              </div>
+            </div>
+          </div>
+
           <Tape items={history} mode={mode} onPick={handlePick} onClear={() => setHistory([])} />
         </div>
 
@@ -144,27 +181,6 @@ export default function App() {
           <p className="mt-5 text-center text-[12px] text-[#5c6a6d] tracking-wide">
             ساخته‌شده برای حساب‌وکتاب‌های روزمره — هر نتیجه روی نوار چاپ می‌شود و قابل برگرداندن است.
           </p>
-
-          {/* credit — Helia's first program */}
-          <div className="mt-8">
-            <div className="flex items-center justify-center gap-3" aria-hidden="true">
-              <span className="h-px w-14 bg-gradient-to-l from-transparent to-[#f7a928]/50" />
-              <svg
-                viewBox="0 0 24 24"
-                className="w-4 h-4 text-[#f7a928] drop-shadow-[0_0_10px_rgba(247,169,40,0.55)]"
-                fill="currentColor"
-              >
-                <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
-              </svg>
-              <span className="h-px w-14 bg-gradient-to-r from-transparent to-[#f7a928]/50" />
-            </div>
-            <p className="mt-3.5 text-center text-sm md:text-[15px] leading-8 text-[#c4bdaa]">
-              این برنامه توسط <span className="font-bold text-[#f7a928]">هلیا</span>، از دانش‌آموزان خانم دکتر آقایی، نوشته شده.
-              <span className="block mt-0.5 text-[12.5px] md:text-[13px] leading-7 text-[#7e8b80]">
-                و اولین تجربه برنامه‌نویسی هلیا است.
-              </span>
-            </p>
-          </div>
         </footer>
       </main>
     </div>

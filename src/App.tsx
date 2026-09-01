@@ -133,9 +133,9 @@ export default function App() {
                 <span className="h-px w-12 bg-gradient-to-r from-transparent to-[#f7a928]/50" />
               </div>
               <p className="mt-3 text-center text-sm md:text-[15px] leading-8 text-[#c4bdaa]">
-                این برنامه توسط <span className="font-bold text-[#f7a928]">هلیا</span>، از دانش‌آموزان خانم دکتر آقایی، نوشته شده.
+                این برنامه توسط <span className="font-bold text-[#f7a928]">هلیا ۶ ساله</span>، از کلاس خانم دکتر آقایی، نوشته شده است
                 <span className="block mt-0.5 text-[12.5px] md:text-[13px] leading-7 text-[#7e8b80]">
-                  و اولین تجربه برنامه‌نویسی هلیا است.
+                  و اولین پروژه هست که خود هلیا ساخته است
                 </span>
               </p>
               <div className="mt-3.5 flex flex-col items-center gap-1.5">
